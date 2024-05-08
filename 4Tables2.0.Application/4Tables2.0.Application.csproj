@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>_4Tables2._0.Application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\4Tables2.0.Domain\4Tables2.0.Domain.csproj" />
+    <ProjectReference Include="..\4Tables2.0.Infra\4Tables2.0.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,6 @@
+@_4Tables_HostAddress = http://localhost:5269
+
+GET {{_4Tables_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
