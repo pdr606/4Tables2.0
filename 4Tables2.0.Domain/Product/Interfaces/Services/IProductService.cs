@@ -13,7 +13,8 @@ namespace _4Tables2._0.Domain.ProductDomain.Interfaces.Services
         Task<Result> GetAllProductsActivesAsync();
         Task<Result> GetAllProductsDesactivesAsync();
         Task<Result> GetAllProductsByCategoryAsync(EProductCategory category);
-        Task<string> GetProductNameById(long id);
-        
+        Task<(string productName, decimal productPrice)> GetProductNameById(long id);
+
+
     }
 }

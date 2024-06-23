@@ -38,8 +38,12 @@ namespace _4Tables2._0.Domain.ProductDomain.Entity
 
         public bool IsValid()
         {
-            return
-                new ProductValidations(this).MinPriceValue().IsValid();
+            return new ProductValidations(this).MinPriceValue().IsValid();
+        }
+
+        public void BindingPrice(decimal price)
+        {
+            Price = price;
         }
     }
 }

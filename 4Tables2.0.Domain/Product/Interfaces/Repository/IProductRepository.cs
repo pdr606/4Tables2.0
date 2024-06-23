@@ -7,7 +7,7 @@ namespace _4Tables2._0.Domain.ProductDomain.Interfaces.Repository
     public interface IProductRepository : IBaseRepository<ProductEntity>
     {
         Task AddRangeAsync(List<ProductEntity> products);
-        Task<string> FindProductByIdAndReturnProductName(long id);
+        Task<(string productName, decimal productPrice)> FindProductByIdAndReturnProductName(long id);
         Task<ProductEntity> FindByName(string name);
         Task<bool> ActiveDesactive(long id);
         Task<IEnumerable<ProductEntity>> FindAllDesactives();

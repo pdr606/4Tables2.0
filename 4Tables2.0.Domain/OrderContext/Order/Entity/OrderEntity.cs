@@ -65,19 +65,9 @@ namespace _4Tables2._0.Domain.OrderContext.Order.Entity
             }
         }
 
-        public void CalculateTotal()
+        public void CalculateTotal(decimal total)
         {
-            var total = 0.00M;
-
-            foreach (var receivedOrder in ReceivedOrders)
-            {
-                foreach (var productOrder in receivedOrder.ProductOrders)
-                {
-                    total += productOrder.Quantity * productOrder.Product.Price;
-                }
-            }
-
-            this.Total = total;
+            Total += total;
         }
 
         public bool OrderTableIsEqualReceivedOrderTable(short receivedOrderTable)

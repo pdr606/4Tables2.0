@@ -14,6 +14,9 @@ namespace _4Tables2._0.Infra.Data.EntitiesConfig
             builder.HasOne(x => x.Product)
                    .WithMany()
                    .HasForeignKey(x => x.ProductId);
+
+            builder.Ignore(x => x._productPrice);
+
         }
     }
 }

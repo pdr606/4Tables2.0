@@ -36,10 +36,7 @@ namespace _4Tables2._0.Application.OrderContext.Order.Services
             if (order == null) 
                 return Result.Create(404, DefaultMessage.SearchByPropertyNotFound("ORDER", id), false);
 
-            order.AggregateOrderProducts();
-            order.CalculateTotal();
-
-            return Result.Create(200, DefaultMessage.SearchCompletedSuccessfully(), true).SetData(EntityMapper.ToOrderDTO(order));
+            return Result.Create(200, DefaultMessage.SearchCompletedSuccessfully(), true).SetData(order);
         }
 
         public async Task<Result> GetOrderByTableIdWithIncludesAsync(int tabledId)
@@ -49,10 +46,7 @@ namespace _4Tables2._0.Application.OrderContext.Order.Services
             if (order == null) 
                 return Result.Create(404, DefaultMessage.SearchByPropertyNotFound("ORDER", tabledId), false);
 
-            order.AggregateOrderProducts();
-            order.CalculateTotal();
-
-            return Result.Create(200, DefaultMessage.SearchCompletedSuccessfully(), true).SetData(EntityMapper.ToOrderDTO(order));
+            return Result.Create(200, DefaultMessage.SearchCompletedSuccessfully(), true).SetData(order);
         }
 
         public async Task<Result> AddReceivedOrderAsync(ReceivedOrderRequestDTO dto)
@@ -79,6 +73,8 @@ namespace _4Tables2._0.Application.OrderContext.Order.Services
                  
             }
 
+            receivedOrder.Order.CalculateTotal(receivedOrder.ProductOrders.Sum(x => x.Quantity * x._productPrice));
+
             _orderRepository.AddReceivedOrder(receivedOrder);
 
             return Result.Create(200, DefaultMessage.PropertiesCreateWithSuccessfully(), true)
@@ -91,9 +87,13 @@ namespace _4Tables2._0.Application.OrderContext.Order.Services
 
             foreach (var productOrderDTO in productOrders)
             {
-                var productName = await _productService.GetProductNameById(productOrderDTO.productId);
+                (var productName, var productPrice) = await _productService.GetProductNameById(productOrderDTO.productId);
+
                 if (productName != null)
-                    productOrdersList.Add(ProductOrderEntity.Create(productOrderDTO.productId, productOrderDTO.quantity, productName));
+                    productOrdersList.Add(ProductOrderEntity.Create(productOrderDTO.productId,
+                                                                    productOrderDTO.quantity,
+                                                                    productName, 
+                                                                    productPrice));
             }
 
             return productOrdersList;

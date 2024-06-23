@@ -6,11 +6,13 @@ namespace _4Tables2._0.Domain.OrderContext.ProductOrder.Entity
 {
     public class ProductOrderEntity : BaseEntity
     {
-        public ProductOrderEntity(long productId, short productQuantity, string productName)
+        public ProductOrderEntity(long productId, short productQuantity, string productName, decimal productPrice)
         {
             ProductId = productId;
             Quantity = productQuantity;
             ProductName = productName;
+
+            _productPrice = productPrice;
         }
 
         protected ProductOrderEntity() { }
@@ -23,10 +25,12 @@ namespace _4Tables2._0.Domain.OrderContext.ProductOrder.Entity
         public short Quantity { get; private set; }
         public string ProductName { get; private set; }
 
-        public static ProductOrderEntity Create(long productId, short productQuantity, string productName)
+        public decimal _productPrice { get; private set; }
+
+        public static ProductOrderEntity Create(long productId, short productQuantity, string productName, decimal productPrice)
         {
-            return
-                new ProductOrderEntity(productId, productQuantity, productName);
+            return new ProductOrderEntity(productId, productQuantity, productName, productPrice);
+
         }
 
         public void IncrementQuantity(short quantity)

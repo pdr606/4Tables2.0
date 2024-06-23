@@ -127,13 +127,13 @@ namespace _4Tables2._0.Application.ProductDomain.Services
             }
         }
 
-        public async Task<string> GetProductNameById(long id)
+        public async Task<(string productName, decimal productPrice)> GetProductNameById(long id)
         {
             return
                 await _productRepository.FindProductByIdAndReturnProductName(id);
         }
 
-        #endregion
+        #endregion  
 
         #region private methods
 

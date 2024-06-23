@@ -59,12 +59,18 @@ namespace _4Tables2._0.Infra.Repositories.Product.Repository
                                .ToListAsync();
         }
 
-        public async Task<string> FindProductByIdAndReturnProductName(long id)
+        public async Task<(string productName, decimal productPrice)> FindProductByIdAndReturnProductName(long id)
         {
-            return await _dbSet.AsNoTracking()
+            var query = await _dbSet.AsNoTracking()
                             .Where(x => x.Id == id)
-                            .Select(x => x.Name)
+                            .Select(x => new
+                            {
+                                x.Name,
+                                x.Price
+                            })
                             .FirstOrDefaultAsync();
+
+            return (query.Name, query.Price);
         }
     }
 }
