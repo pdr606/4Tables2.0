@@ -33,38 +33,7 @@ namespace _4Tables2._0.Domain.OrderContext.Order.Entity
         {
             _receveidOrders.Add(simpleOrder); return this;
         }
-
-        public void AggregateOrderProducts()
-        {
-            var aggregatedProductOrders = new Dictionary<long, ProductOrderEntity>();
-
-            foreach (var receivedOrder in ReceivedOrders)
-            {
-                foreach (var productOrder in receivedOrder.ProductOrders)
-                {
-                    if (aggregatedProductOrders.ContainsKey(productOrder.ProductId))
-                    {
-                        var existingProductOrder = aggregatedProductOrders[productOrder.ProductId];
-                        existingProductOrder.IncrementQuantity(productOrder.Quantity);
-                    }
-                    else
-                    {
-                        aggregatedProductOrders.Add(productOrder.ProductId, productOrder);
-                    }
-                }
-            }
-
-            _receveidOrders.Clear();
-
-            foreach (var productOrder in aggregatedProductOrders.Values)
-            {
-                var receivedOrder = ReceivedOrderEntity.Create(null, productOrder.ReceivedOrder.Table);
-                receivedOrder.PullOrder(this);
-                receivedOrder.PullProductOrder(new List<ProductOrderEntity> { productOrder });
-                _receveidOrders.Add(receivedOrder);
-            }
-        }
-
+        
         public void CalculateTotal(decimal total)
         {
             Total += total;

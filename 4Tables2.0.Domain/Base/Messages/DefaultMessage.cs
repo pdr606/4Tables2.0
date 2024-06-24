@@ -11,5 +11,6 @@
         public static string PropertieNotFoundInSytem(string property) => $"{property.ToString()} não encontrada no sistema.";
         public static string InternalError(string message) => $"Erro interno no servidor : {message}.";
         public static string TableNumberAndOrderNotEquals() => $"O número da Ordem não condiz com o número da mesa.";
+        public static string NoOrdersActives() => $"Sem ordens ativas no momento.";
     }
 }

@@ -32,12 +32,27 @@ namespace _4Tables.ControllerOrder.Order
             return StatusCode(result.StatusCode, result);
         }
 
-        [HttpGet("table/{tableId:int}")]
+        [HttpGet("Table/{tableId:int}")]
         public async Task<ActionResult> GetOrderByTableIdAsync([FromRoute] int tableId)
         {
             var result = await _orderService.GetOrderByTableIdWithIncludesAsync(tableId);
 
             return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAllOrdersActive()
+        {
+            var result = await _orderService.GetAllOrdersActives();
+
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet("Stats")]
+        public async Task<ActionResult> GetOrderStats([FromQuery] DateTime dataInicial, [FromQuery] DateTime dataFinal)
+        {
+            var result = await _orderService.GetOrderStats(dataInicial, dataFinal);
+            return Ok(result);
         }
     }
 }

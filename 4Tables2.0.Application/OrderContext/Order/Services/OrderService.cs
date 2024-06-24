@@ -29,6 +29,24 @@ namespace _4Tables2._0.Application.OrderContext.Order.Services
             _settingsService = settingsService;
         }
 
+        public async Task<Result> GetAllOrdersActives()
+        {
+            var orders = await _orderRepository.GetAllOrdersActives();
+
+            if (!orders.Any())
+                return Result.Create(200, DefaultMessage.NoOrdersActives(), true);
+
+            return Result.Create(200, DefaultMessage.SearchCompletedSuccessfully(), true).SetData(orders);
+        }
+
+        public async Task<Result> GetOrderStats(DateTime dataInicial, DateTime dataFinal)
+        {
+            var ordersStats = await _orderRepository.GetOrderStats(dataInicial, dataFinal.AddDays(1).AddTicks(-1));
+
+            return Result.Create(200, DefaultMessage.SearchCompletedSuccessfully(), true).SetData(ordersStats);
+
+        }
+
         public async Task<Result> GellOrderByIdWithIncludesAsync(long id)
         {
             var order = await _orderRepository.GetOrderByIdWithIncludes(id);

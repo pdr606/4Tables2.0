@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G/0ssp/BcWtpstxheyvMCG+Pr8t6DwDkoddPIMBaPqol2a0oTQr9t6qNyyABsg9s20V23eoutwM/7SRm3NjYRg==",
+  "dgSpecHash": "KpYDk3p6dg/Rpd2hvKm5K/D7C1vbUYvu4lCXFtB9g474hn5QYkVJB4Zjm2+tWizdsFVjVH3pjG65j/eTqAGp5A==",
   "success": true,
   "projectFilePath": "C:\\Users\\tutor\\4Table2.0\\4Tables\\4Tables.API.csproj",
   "expectedPackageFiles": [
@@ -62,5 +62,16 @@
     "C:\\Users\\tutor\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\tutor\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Npgsql' 8.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-x9vc-6hfv-hg8c",
+      "libraryId": "Npgsql",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
