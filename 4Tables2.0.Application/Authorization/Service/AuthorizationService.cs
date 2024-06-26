@@ -53,7 +53,6 @@ public class AuthorizationService : IAuthorizationService
 
         return Result.Create(404, DefaultMessage.NoSuccess(), false);
     }
-
     public async Task<Result> Login(LoginUserDTO loginUserDto)
     {
         var user = await _userManager.FindByEmailAsync(loginUserDto.Email);
@@ -74,7 +73,6 @@ public class AuthorizationService : IAuthorizationService
 
         return Result.Create(404, DefaultMessage.UserNotFound(), false);
     }
-
     private async Task<LoginResponseDTO> GenerateToken(IdentityUser user)
     {
         var tokenClaims = await FindClaimsAndRoles(user);
@@ -94,12 +92,15 @@ public class AuthorizationService : IAuthorizationService
 
         return LoginResponseDTO.Create(token);
     }
-
     private async Task<IList<Claim>> FindClaimsAndRoles(IdentityUser user)
     {
         var claims = await _userManager.GetClaimsAsync(user);
         var roles = await _userManager.GetRolesAsync(user);
-        
+
+        return CreateClaim(claims, roles, user);
+    }
+    private IList<Claim> CreateClaim(IList<Claim> claims, IList<string> roles, IdentityUser user)
+    {
         claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
         claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
         claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));

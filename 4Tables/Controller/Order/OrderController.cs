@@ -1,6 +1,7 @@
 ﻿using _4Tables.Base;
 using _4Tables2._0.Domain.OrderContext.Order.Interfaces.Services;
 using _4Tables2._0.Domain.OrderContext.ReceivedOrder.DTO;
+using _4Tables2._0.Domain.User.Enum;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,6 +52,7 @@ namespace _4Tables.ControllerOrder.Order
         }
 
         [HttpGet("Stats")]
+        [Authorize(Roles = nameof(EUserRole.Admin))]
         public async Task<ActionResult> GetOrderStats([FromQuery] DateTime dataInicial, [FromQuery] DateTime dataFinal)
         {
             var result = await _orderService.GetOrderStats(dataInicial, dataFinal);
