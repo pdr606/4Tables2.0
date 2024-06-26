@@ -1,5 +1,67 @@
 [
   {
+    "ContainingType": "_4Tables.Controller.Authorization.AuthorizationController",
+    "Method": "Login",
+    "RelativePath": "api/Authorization/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginUserDto",
+        "Type": "_4Tables2._0.Domain.User.DTO.LoginUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "_4Tables.Controller.Authorization.AuthorizationController",
+    "Method": "Register",
+    "RelativePath": "api/Authorization/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUserDto",
+        "Type": "_4Tables2._0.Domain.User.DTO.RegisterUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
     "ContainingType": "_4Tables.ControllerOrder.Order.OrderController",
     "Method": "AddOrder",
     "RelativePath": "api/Order",
@@ -13,6 +75,31 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "_4Tables.ControllerOrder.Order.OrderController",
+    "Method": "GetAllOrdersActive",
+    "RelativePath": "api/Order",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.String",
@@ -63,8 +150,44 @@
   },
   {
     "ContainingType": "_4Tables.ControllerOrder.Order.OrderController",
+    "Method": "GetOrderStats",
+    "RelativePath": "api/Order/Stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dataInicial",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "dataFinal",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "_4Tables.ControllerOrder.Order.OrderController",
     "Method": "GetOrderByTableIdAsync",
-    "RelativePath": "api/Order/table/{tableId}",
+    "RelativePath": "api/Order/Table/{tableId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

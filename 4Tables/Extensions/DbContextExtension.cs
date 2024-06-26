@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace _4Tables.Extensions
 {
@@ -10,12 +11,12 @@ namespace _4Tables.Extensions
             {
                 var contexts = (from asm in AppDomain.CurrentDomain.GetAssemblies()
                                 from type in asm.GetTypes()
-                                where type.IsClass && type.BaseType == typeof(DbContext)
+                                where type.IsClass && type.BaseType == typeof(IdentityDbContext)
                                 select type).ToArray();
 
                 foreach (var item in contexts)
                 {
-                    (scope.ServiceProvider.GetRequiredService(item) as DbContext)
+                    (scope.ServiceProvider.GetRequiredService(item) as IdentityDbContext)
                         .Database.Migrate();
                 }
             }

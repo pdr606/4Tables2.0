@@ -7,11 +7,13 @@ using _4Tables2._0.Domain.ProductDomain.Entity;
 using _4Tables2._0.Domain.SettingsContext.Settings.Entity;
 using _4Tables2._0.Domain.SettingsContext.Table.Entity;
 using _4Tables2._0.Infra.Data.EntitiesConfig;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace _4Tables2._0.Infra.Data.DbConfig
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
 

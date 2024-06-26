@@ -7,7 +7,7 @@ namespace _4Tables.Base
     [ApiController]
     [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public class BaseController : Controller
+    public class BaseController : Microsoft.AspNetCore.Mvc.Controller
     {
         protected ActionResult ResponseBase(
             HttpStatusCode statusCode,

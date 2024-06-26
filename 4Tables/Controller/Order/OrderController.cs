@@ -1,6 +1,7 @@
 ﻿using _4Tables.Base;
 using _4Tables2._0.Domain.OrderContext.Order.Interfaces.Services;
 using _4Tables2._0.Domain.OrderContext.ReceivedOrder.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _4Tables.ControllerOrder.Order
@@ -41,6 +42,7 @@ namespace _4Tables.ControllerOrder.Order
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult> GetAllOrdersActive()
         {
             var result = await _orderService.GetAllOrdersActives();

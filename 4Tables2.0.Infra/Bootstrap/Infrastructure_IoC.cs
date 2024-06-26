@@ -10,6 +10,7 @@ using _4Tables2._0.Infra.Data.DbConfig;
 using _4Tables2._0.Infra.Repositories.OrderContext.Order.Repository;
 using _4Tables2._0.Infra.Repositories.Product.Repository;
 using _4Tables2._0.Infra.Repositories.Settings.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,11 @@ namespace _4Tables2._0.Infra.Bootstrap
             services.AddScoped<ISettingsRepository, SettingsRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
 
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+            
             return services;
         }
     }

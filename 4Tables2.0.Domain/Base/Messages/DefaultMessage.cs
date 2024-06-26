@@ -12,5 +12,8 @@
         public static string InternalError(string message) => $"Erro interno no servidor : {message}.";
         public static string TableNumberAndOrderNotEquals() => $"O número da Ordem não condiz com o número da mesa.";
         public static string NoOrdersActives() => $"Sem ordens ativas no momento.";
+        public static string NoSuccess() => "Falha na requisição, configra os dados.";
+        public static string LoginWithSuccess() => "Login realizado com sucesso";
+        public static string UserNotFound() => "Usuário ou senha inválido";
     }
 }

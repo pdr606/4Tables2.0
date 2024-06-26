@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4Tables2.0.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96210dcdf7a3f816533c50d7de7ddf5814dae699")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28028449d77e67a6dd6f3eeaffec598cf48abf00")]
 [assembly: System.Reflection.AssemblyProductAttribute("4Tables2.0.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4Tables2.0.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
