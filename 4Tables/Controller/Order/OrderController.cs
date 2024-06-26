@@ -47,7 +47,6 @@ namespace _4Tables.ControllerOrder.Order
         public async Task<ActionResult> GetAllOrdersActive()
         {
             var result = await _orderService.GetAllOrdersActives();
-
             return StatusCode(result.StatusCode, result);
         }
 
