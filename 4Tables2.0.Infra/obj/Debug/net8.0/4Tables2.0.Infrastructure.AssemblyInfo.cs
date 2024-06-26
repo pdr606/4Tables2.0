@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4Tables2.0.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28028449d77e67a6dd6f3eeaffec598cf48abf00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63bc5945d84ba63431cac082dcd6130ba5659a18")]
 [assembly: System.Reflection.AssemblyProductAttribute("4Tables2.0.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4Tables2.0.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
